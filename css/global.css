@@ -1,0 +1,244 @@
+/* ============================================================
+   Global Styles — Smart Expense Manager
+   ============================================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary:      #667eea;
+    --primary-dark: #5568d3;
+    --secondary:    #764ba2;
+    --success:      #48bb78;
+    --danger:       #f56565;
+    --warning:      #ed8936;
+    --info:         #4299e1;
+    --light:        #f7fafc;
+    --dark:         #2d3748;
+    --gray:         #718096;
+    --border:       #e2e8f0;
+    --shadow:       rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* -------------------------------------------------------
+   Layout
+   ------------------------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px var(--shadow);
+    margin-bottom: 20px;
+}
+
+.grid        { display: grid; gap: 20px; }
+.grid-2      { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3      { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+/* -------------------------------------------------------
+   Buttons
+   ------------------------------------------------------- */
+.btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.btn-block   { width: 100%; display: block; padding: 13px; font-size: 16px; }
+.btn-sm      { padding: 6px 14px; font-size: 13px; }
+.btn-xs      { padding: 3px 9px;  font-size: 11px; }
+
+.btn-primary   { background: var(--primary);  color: #fff; }
+.btn-primary:hover   { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 12px var(--shadow); }
+
+.btn-secondary { background: var(--gray);    color: #fff; }
+.btn-secondary:hover { background: #5a6475; }
+
+.btn-danger    { background: var(--danger);   color: #fff; }
+.btn-danger:hover    { background: #e53e3e; }
+
+.btn-success   { background: var(--success);  color: #fff; }
+
+/* -------------------------------------------------------
+   Forms
+   ------------------------------------------------------- */
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 14px;
+}
+
+.form-group label small {
+    font-weight: 400;
+    color: var(--gray);
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.25s ease;
+    background: #fff;
+    color: var(--dark);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+/* -------------------------------------------------------
+   Alerts
+   ------------------------------------------------------- */
+.alert {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.alert-success {
+    background: #c6f6d5;
+    color: #22543d;
+    border: 1px solid #9ae6b4;
+}
+
+.alert-error {
+    background: #fed7d7;
+    color: #742a2a;
+    border: 1px solid #fc8181;
+}
+
+/* -------------------------------------------------------
+   Badges
+   ------------------------------------------------------- */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.badge-food          { background: #fef5e7; color: #d68910; }
+.badge-transport     { background: #ebf5fb; color: #2e86c1; }
+.badge-shopping      { background: #fef9e7; color: #d4ac0d; }
+.badge-entertainment { background: #f4ecf7; color: #8e44ad; }
+.badge-bills         { background: #eafaf1; color: #27ae60; }
+.badge-health        { background: #fdecea; color: #e74c3c; }
+.badge-education     { background: #eaf4fb; color: #1a5276; }
+.badge-travel        { background: #fdfefe; color: #148f77; }
+.badge-other         { background: #f0f0f0; color: #7f8c8d; }
+
+/* -------------------------------------------------------
+   Budget progress bars
+   ------------------------------------------------------- */
+.budget-row {
+    margin-bottom: 18px;
+}
+
+.budget-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--dark);
+}
+
+.budget-bar-track {
+    width: 100%;
+    height: 10px;
+    background: var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.budget-bar {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.budget-bar-ok   { background: var(--success); }
+.budget-bar-warn { background: var(--warning); }
+.budget-bar-over { background: var(--danger);  }
+
+.budget-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+}
+
+/* -------------------------------------------------------
+   Text utilities
+   ------------------------------------------------------- */
+.text-danger  { color: var(--danger) !important; }
+.text-success { color: var(--success) !important; }
+.text-muted   { color: var(--gray); }
+
+.chart-empty {
+    text-align: center;
+    color: var(--gray);
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+/* -------------------------------------------------------
+   Animations
+   ------------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* -------------------------------------------------------
+   Responsive
+   ------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container { padding: 10px; }
+    .card      { padding: 16px; }
+    .btn       { font-size: 14px; }
+}
